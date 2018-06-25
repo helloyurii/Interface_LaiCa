@@ -6,7 +6,16 @@ from tkinter import filedialog
 import pandas as pd
 import numpy as np
 
-
+''' Importando Bibliotecas --> UBUNTU:
+        sudo pip3 install pandas
+        sudo apt-get install python3-pil python3-pil.imagetk
+        sudp apt install PIL
+    Importante Bibliotecas --> Windows:
+        python -m pip insall --upgrade pip
+        pip install Pillow
+        pip instal Image
+        pip install pandas
+'''
 
 class LaicaApp(tk.Frame):
 
@@ -15,7 +24,7 @@ class LaicaApp(tk.Frame):
         self.frame_total = tk.Frame.__init__(self, master)
         self.pack()
 
-        # IMPORTANDO FILE DA ESTAÇÃO
+        # importando estacoes
         data_estacoes = pd.read_csv("estacoes.csv", sep=",")
         estacaoList = data_estacoes['estacao'].values.tolist()
 
@@ -51,7 +60,7 @@ class LaicaApp(tk.Frame):
             self.frame_aba1.configure(bg="white")
             # ABA2
             self.frame_aba2 = tk.Frame(self.abas)
-            self.abas.add(self.frame_aba2, text= "Qualificação")
+            self.abas.add(self.frame_aba2, text= "Qualificações")
             self.frame_aba2.configure(bg="white")
 
             self.abas.pack(fill=tk.BOTH, expand=1)
@@ -170,7 +179,7 @@ class LaicaApp(tk.Frame):
                 estado = str(estado)
                 check_estacao_texto = ""
             else:
-                check_estação_texto = "Estação contêm um nome inválido."
+                check_estacao_texto = "Estação contêm um nome inválido."
 
         def check_lat_graus(graus):
             try:
